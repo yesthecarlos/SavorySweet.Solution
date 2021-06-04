@@ -8,17 +8,17 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
-using SweetSavoryTreat.Models;
+using SweetSavoryTreats.Models;
 
-namespace SweetSavoryTreat.Controllers
+namespace SweetSavoryTreats.Controllers
 {
   [Authorize]
   public class TreatsController : Controller
   {
-    private readonly SweetSavoryTreatContext _db;
+    private readonly SweetSavoryTreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public TreatsController(UserManager<ApplicationUser> userManager, SweetSavoryTreatContext db)
+    public TreatsController(UserManager<ApplicationUser> userManager, SweetSavoryTreatsContext db)
     {
       _userManager = userManager;
       _db = db;

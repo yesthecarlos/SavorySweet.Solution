@@ -12,6 +12,8 @@ namespace SweetSavoryTreats.Models
     {
       this.JoinEntities = new HashSet<FlavorTreat>();
     }
+
+    public virtual ApplicationUser User { get; set; }
     
     [Display(Name="Flavor Id")]
     public int FlavorId { get; set; }

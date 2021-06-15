@@ -6,7 +6,7 @@ using SweetSavoryTreats.Models;
 
 namespace SweetSavoryTreats.Controllers
 {
-  public class AccountController : Controller
+    public class AccountController : Controller
     {
         private readonly SweetSavoryTreatsContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -45,27 +45,27 @@ namespace SweetSavoryTreats.Controllers
         }
         public ActionResult Login()
         {
-          return View();
+            return View();
         }
 
-      [HttpPost]
-      public async Task<ActionResult> Login(LoginViewModel model)
-      {
-          Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
-          if (result.Succeeded)
-          {
-              return RedirectToAction("Index", "Home");
-          }
-          else
-          {
-              return View();
-          }
-      }
-      [HttpPost]
-      public async Task<ActionResult> LogOff()
-      {
-          await _signInManager.SignOutAsync();
-          return RedirectToAction("Index", "Home");
-      }
-  }
+        [HttpPost]
+        public async Task<ActionResult> Login(LoginViewModel model)
+        {
+            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        public async Task<ActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+    }
 }
